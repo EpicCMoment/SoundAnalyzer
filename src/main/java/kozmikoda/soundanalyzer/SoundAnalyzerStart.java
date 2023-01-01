@@ -32,16 +32,18 @@ public class SoundAnalyzerStart extends Thread {
         this.analyzeLabel = analyzeLabel;
     }
 
+
     public void run() {
+        File exePath = new File(newDir.toString() + "\\resources\\");
         Process process;
         String data = "Weird unknown error occurred. Please try again.";
         try {
             // Getting the exe path from resources file
-            File exePath = new File(newDir.toString() + "\\src\\main\\resources\\kozmikoda\\utilitytoolbox\\soundAnalyzer\\");
+
             System.out.println(exePath);
 
             // Creating the process for execute the soundAnalyzer.exe
-            process = Runtime.getRuntime().exec(new String[]{exePath.toString() + "\\soundAnalyzer.exe"}, null, exePath);
+            process = Runtime.getRuntime().exec(new String[]{"python", "soundAnalyzer.py"}, null, exePath);
             process.info();
             // Waiting for the process to be finished
             process.waitFor();
@@ -54,7 +56,8 @@ public class SoundAnalyzerStart extends Thread {
 
         // Reading the output from out.txt that is created by executable
         try {
-            Path txtPath = newDir.resolve("src\\main\\resources\\kozmikoda\\utilitytoolbox\\soundAnalyzer\\out.txt");
+            Path txtPath = newDir.resolve("resources\\out.txt");
+            System.out.println(txtPath);
             File myObj = new File(txtPath.toString());
             Scanner myReader = new Scanner(myObj);
 
@@ -77,7 +80,9 @@ public class SoundAnalyzerStart extends Thread {
     public void prepareFile() {
         // PREPROCESS
         // copying selected .wav file
-        Path soundPath = newDir.resolve(Paths.get("src\\main\\resources\\kozmikoda\\utilitytoolbox\\soundAnalyzer\\" + source.getFileName().toString()));
+        Path soundPath = newDir.resolve(Paths.get("resources\\" + source.getFileName().toString()));
+        System.out.println(soundPath);
+        System.out.println(source);
         try {
             Files.copy(source, soundPath, StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {

@@ -45,7 +45,7 @@ public class SoundAnalyzerController {
         stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
 
         // ADD INITIAL DIRECTORY TO EXAMPLE SOUND FILE DIRECTORY
-        // fileChooser.setInitialDirectory(new File("C:\\Users\\sertac\\Desktop\\ayb-ceng463-machine-learning-project-fall-2022"));
+        fileChooser.setInitialDirectory(new File("resources\\test_sounds"));
         try {
             fileChooser.getExtensionFilters().addAll(
                     new FileChooser.ExtensionFilter("Wav Files", "*.wav")
@@ -69,6 +69,7 @@ public class SoundAnalyzerController {
             output.setVisible(true);
             output.setText("You did not select a file!");
             selectButton.setDisable(false);
+            e.printStackTrace();
         }
 
         // output.setText(data);

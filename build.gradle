@@ -25,7 +25,7 @@ tasks.withType(JavaCompile) {
 
 application {
     mainModule = 'kozmikoda.soundanalyzer'
-    mainClass = 'kozmikoda.soundanalyzer.SoundAnalyzeApplication'
+    mainClass = 'kozmikoda.soundanalyzer.SoundAnalyzerApplication'
 }
 
 javafx {
@@ -47,7 +47,7 @@ jlink {
     imageZip = project.file("${buildDir}/distributions/SoundAnalyzer.zip")
     options = ['--strip-debug', '--compress', '1', '--no-header-files', '--no-man-pages']
     launcher {
-        name = 'app'
+        name = 'SoundAnalyzer'
     }
 }
 
