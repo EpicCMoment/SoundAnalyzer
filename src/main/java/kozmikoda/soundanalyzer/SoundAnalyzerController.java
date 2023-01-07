@@ -14,6 +14,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.nio.file.Paths;
 
 public class SoundAnalyzerController {
 
@@ -32,11 +33,13 @@ public class SoundAnalyzerController {
     private Pane titlebar;
     @FXML
     private Stage window;
-    FileChooser fileChooser = new FileChooser();
+    private FileChooser fileChooser = new FileChooser();
     private Stage stage;
 
 
-    // Selecting File
+    /**
+     * Opens up a file selector window
+     */
     @FXML
     protected void selectFileButton(ActionEvent event) {
         selectButton.setDisable(true);
@@ -76,6 +79,9 @@ public class SoundAnalyzerController {
 
     }
 
+    /**
+     * Action of the close button
+     */
     @FXML
     protected void closeButton(ActionEvent event) {
         stage = (Stage) ((Button) event.getSource()).getScene().getWindow();

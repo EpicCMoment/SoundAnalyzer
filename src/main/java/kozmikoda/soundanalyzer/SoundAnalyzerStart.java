@@ -33,6 +33,9 @@ public class SoundAnalyzerStart extends Thread {
     }
 
 
+    /**
+     * Runs the underlying python script (or .exe if it is generated)
+     */
     public void run() {
         File exePath = new File(newDir.toString() + "\\resources\\");
         Process process;
@@ -77,6 +80,9 @@ public class SoundAnalyzerStart extends Thread {
 
     }
 
+    /**
+     * Prepares the file that is going to be processed
+     */
     public void prepareFile() {
         // PREPROCESS
         // copying selected .wav file
